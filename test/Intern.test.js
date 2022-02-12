@@ -7,19 +7,19 @@ describe('Intern', () => {
             const name = 'Bob';
             const id = 1;
             const email = 'email value';
-            const githubUsername = 'gitID_123';
+            const internSchoolName = 'UWO';
 
-            const newEngineer = new Intern(name, id, email, githubUsername)
+            const newIntern = new Intern(name, id, email, internSchoolName)
 
-            expect(newEngineer.name).toEqual(name);
-            expect(newEngineer.id).toEqual(id);
-            expect(newEngineer.email).toEqual(email);   
-            expect(newEngineer.github).toEqual(githubUsername);        
+            expect(newIntern.name).toEqual(name);
+            expect(newIntern.id).toEqual(id);
+            expect(newIntern.email).toEqual(email);   
+            expect(newIntern.school).toEqual(internSchoolName);        
         })
 
         it("Should return an error when not all parameters in constructor are passed for Intern Object", () => {
             const cb = () => new Intern();
-            const errorMsg = new Error('Not all parameters were filled in engineer constructor'); 
+            const errorMsg = new Error('Not all parameters were filled in intern constructor'); 
             expect(cb).to(errorMsg);
         })
     })
@@ -29,20 +29,20 @@ describe('Intern', () => {
     it('getName', () => {
         it("Should return Intern object's name property", () => {
             let expectedName = 'Bob';
-            let newEngineer = new Intern('Bob', 1, 'testEmail', 'gitAccount');
+            let newIntern = new Intern('Bob', 1, 'testEmail', 'gitAccount');
 
-            let newEngineerName = newEngineer.getName();
-            expect(newEngineerName).toEqual(expectedName)
+            let newInternName = newIntern.getName();
+            expect(newInternName).toEqual(expectedName)
         })
     })
     // getId() is expecting the number 1 when getId is invoked => making sure id in constructor and method are in tandem
     it('getId', () => {
         it("Should return Intern object's id property", () => {
             let expectedId = 1;
-            let newEngineer = new Intern('Bob', 1, 'testEmail', 'gitAccount');
+            let newIntern = new Intern('Bob', 1, 'testEmail', 'gitAccount');
 
-            let newEngineerId = newEngineer.getId();
-            expect(newEngineerId).toEqual(expectedId);
+            let newInternId = newIntern.getId();
+            expect(newInternId).toEqual(expectedId);
         })
     })
 
@@ -50,10 +50,10 @@ describe('Intern', () => {
     it('getEmail', () => {
         it("Should return Intern object's em property", () => {
             let expectedEmail = 'test@gmail.com';
-            let newEngineer = new Intern('Bob', 1, 'test@gmail.com', 'gitaccount');
+            let newIntern = new Intern('Bob', 1, 'test@gmail.com', 'gitaccount');
 
-            let newEngineerEmail = newEngineer.getEmail();
-            expect(newEngineerEmail).toEqual(expectedEmail);
+            let newInternEmail = newIntern.getEmail();
+            expect(newInternEmail).toEqual(expectedEmail);
         })
     })
 
@@ -61,20 +61,18 @@ describe('Intern', () => {
     it('getRole', () => {
         it("Should return string saying Intern", () => {
             let expectedRole = 'Intern';
-            let newEngineer = new Intern('Bob', 1, 'testEmail@gmail.com', 'gitAccount');
-            let employeeRole = newEngineer.getRole();
+            let newIntern = new Intern('Bob', 1, 'testEmail@gmail.com', 'gitAccount');
+            let employeeRole = newIntern.getRole();
             expect(employeeRole).toEqual(expectedRole);
         })
     })
 
-    it('getGithub', () => {
-        it("Should return Intern object's Github username", () => {
-            let expectedGitUsername = 'bdejene19@gmail.com';
-            let newEngineer = new Intern('Bob', 1, 'testEmail@gmail.com', 'bdejene19@gmail.com');
-
-            let engineerGithub = newEngineer.getGithub();
-            expect(engineerGithub).toEqual(expectedGitUsername);
-            
+    it('getSchool', () => {
+        it("Should return school property (String) of newly generated Intern object", () => {
+            const school = 'UWO'
+            const newIntern = new Intern('Bemnet', '1', 'test@gmail.com', 'UWO');
+            const internSchoolName = newIntern.getSchool();
+            expect(internSchoolName).toEqual(school);
         })
     })
 })
