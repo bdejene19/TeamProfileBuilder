@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const reused = require('../../../index');
-
+const htmlGen = require('./createHTML');
 const Engineer = require('../classes/Engineer')
 const Intern = require('../classes/Intern')
 
@@ -64,11 +64,12 @@ const teamMateAdder = () => {
                     reused.teamList.push(newMember);
                     teamMateAdder();
                 })
-    
-    
             })
-    
-            
+        } else {
+            let teamLead = reused.teamList[0];
+            let onlyEngs = reused.teamList.filter(obj => obj.getRole() === 'Engineer')
+            let onlyInterns = reused.teamList.filter(obj => obj.getRole() === 'Intern')
+            htmlGen.writeHtmlFile('test', reused.teamList);
         }
     }).catch(err => console.log(err))  ;
 
@@ -81,23 +82,3 @@ module.exports = {
     teamMateAdder,
     teammatesAdded,
 }
-
-
-
-
-    // inquirer.prompt([{
-    //     type: 'confirm',
-    //     message:'Add Engineer:',
-    //     name: 'engineer',
-    // }]).then(data => {
-    //     if (data.engineer) {
-    //         let questions = [];
-    //         console.log("Fill in Engineering Team Member's information: \n_________________\n")
-    //         questions = reused.createPrompts(engineerQuestions);
-    //     } else {
-    //         console.log("Intern Autoselection turned on since engineer confirmation declined")
-    //         console.log("Fill in Intern Team Member's information: \n_________________\n")
-    //         questions = reused.createPrompts(engineerQuestions);
-    //     }
-    //     inquirer.prompt(questions)
-    // })
