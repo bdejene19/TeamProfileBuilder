@@ -14,21 +14,32 @@
  *      - card generate should have one variable within the function => determines dynamic property in html
  *      - dynamic cards: officeNumber, Github, School
  */
+
+// import fs to write html file
 const fs = require('fs');
+
+/**
+ * Generates employee card in new HTML file 
+ * @param {Object} employeeAttribs Manager, Engineer or Intern class passed through to use properties to fill in HTML card data.
+ * @returns Stringified HTML content that contains the styling for employee card.
+ */
 const createCard = (employeeAttribs) => {
     let dynamiceField = '';
     let dynamicFieldData = null;
     
+    // dynamic field is the field that is unique to that object
     if (employeeAttribs.officeNumber) {
         dynamiceField = 'Office Number';
         dynamicFieldData = employeeAttribs.officeNumber;
     } else if (employeeAttribs.github) {
         dynamiceField = 'Github';
+        // link github username to github account
         dynamicFieldData = `<a href="https://github.com/${employeeAttribs.github}" target="_blank">${employeeAttribs.github}</a>`;
     } else {
         dynamiceField = 'School';
         dynamicFieldData = employeeAttribs.school;
     }
+    // stringified HTML content
     return `
         <article style="flex: 1 1 15em;  border-radius: 15px; border: solid black 1px; overflow: hidden; height: 100%; box-shadow: black 3px 5px 5px 0px;">
             <div style="display: flex; flex-direction: column; padding: 1em; flex-wrap: wrap; background-color: skyblue; color: white;">
@@ -54,6 +65,11 @@ const createCard = (employeeAttribs) => {
     ` 
 }
 
+/**
+ * Writes new 
+ * @param {string} fileName Name of newly generated HTML file.
+ * @param {[]} fileContent Array of employee objects, including all types: Manager, Engineer, Intern.
+ */
 const writeHtmlFile = (fileName, fileContent) => {
     let appendedHTML ='';
     console.log(fileContent);

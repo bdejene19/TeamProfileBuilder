@@ -1,5 +1,10 @@
 
 const Employee = require('./Employee');
+/**
+ * Child of Employee class
+ * Intern class also requires github username as property
+ * Has additional method getSchool() to return school property
+ */
 
 class Intern extends Employee {
     constructor(name, id, email, internSchool) {
@@ -16,5 +21,5 @@ class Intern extends Employee {
     }  
 }
 
-module.exports = Intern
+module.exports = Intern;
 
