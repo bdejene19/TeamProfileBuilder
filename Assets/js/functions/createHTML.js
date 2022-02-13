@@ -14,29 +14,41 @@
  *      - card generate should have one variable within the function => determines dynamic property in html
  *      - dynamic cards: officeNumber, Github, School
  */
+
+// import fs to write html file
 const fs = require('fs');
+
+/**
+ * Generates employee card in new HTML file 
+ * @param {Object} employeeAttribs Manager, Engineer or Intern class passed through to use properties to fill in HTML card data.
+ * @returns Stringified HTML content that contains the styling for employee card.
+ */
 const createCard = (employeeAttribs) => {
     let dynamiceField = '';
     let dynamicFieldData = null;
-    if (employeeAttribs.office_number) {
-        dynamiceField = 'Office Number: ';
+    
+    // dynamic field is the field that is unique to that object
+    if (employeeAttribs.officeNumber) {
+        dynamiceField = 'Office Number';
         dynamicFieldData = employeeAttribs.officeNumber;
     } else if (employeeAttribs.github) {
         dynamiceField = 'Github';
+        // link github username to github account
         dynamicFieldData = `<a href="https://github.com/${employeeAttribs.github}" target="_blank">${employeeAttribs.github}</a>`;
     } else {
         dynamiceField = 'School';
         dynamicFieldData = employeeAttribs.school;
     }
+    // stringified HTML content
     return `
-        <article style="flex: 1 1 15em; flex: 0.5 1 15em;">
+        <article style="flex: 1 1 15em;  border-radius: 15px; border: solid black 1px; overflow: hidden; height: 100%; box-shadow: black 3px 5px 5px 0px;">
             <div style="display: flex; flex-direction: column; padding: 1em; flex-wrap: wrap; background-color: skyblue; color: white;">
-                <h2>${employeeAttribs.name}</h2>
-                <h3>${employeeAttribs.getRole()}</h3>
+                <h2 style="font-size: 1.25rem;">${employeeAttribs.name}</h2>
+                <h3 style="font-size: 1.25rem;">${employeeAttribs.getRole()}</h3>
             </div>
 
-            <div style="display: flex; justify-content: center; align-items: center; padding: 1em; background-color: lightgrey;">
-                <div style="display: flex; flex-direction: column; flex-wrap: wrap; width: 100%; background-color: white;">
+            <div style="display: flex; flex-direction: column; justify-content: center; padding: 1em; background-color: lightgrey; width: 100%; height: 100%;">
+                <div style="background-color: white;">
                     <p style="padding: 1.25em; border: solid black 2px; border-bottom: none;">
                         ID: ${employeeAttribs.id}
                     </p>
@@ -50,33 +62,17 @@ const createCard = (employeeAttribs) => {
                 </div>
             </div>
         </article>
-
-        <article style="flex: 1 1 15em;  border-radius: 15px; border: solid black 1px; overflow: hidden; height: 100%; box-shadow: black 3px 5px 5px 0px;">
-            <div style="display: flex; flex-direction: column; padding: 1em; flex-wrap: wrap; background-color: skyblue; color: white;">
-                <h2>${employeeAttribs.name}</h2>
-                <h3>${employeeAttribs.getRole()}</h3>
-            </div>
-
-        <div style="display: flex; flex-direction: column; justify-content: center; padding: 1em; background-color: lightgrey; width: 100%; height: 100%;">
-            <div style="background-color: white;">
-                <p style="padding: 1.25em; border: solid black 2px; border-bottom: none;">
-                    ID: ${employeeAttribs.id}
-                </p>
-                <p style="padding: 1.25em; border: solid black 2px; border-bottom: none;">
-                    Email: <a href="mailto: ${employeeAttribs.email}">${employeeAttribs.email}</a>
-                </p>
-                <p style="padding: 1.25em; border: solid black 2px;">
-                    Github: <a href="https://github.com/a" target="_blank">a</a>
-                </p>
-
-            </div>
-        </div>
-    </article>
     ` 
 }
 
+/**
+ * Writes new 
+ * @param {string} fileName Name of newly generated HTML file.
+ * @param {[]} fileContent Array of employee objects, including all types: Manager, Engineer, Intern.
+ */
 const writeHtmlFile = (fileName, fileContent) => {
     let appendedHTML ='';
+    console.log(fileContent);
     fileContent.map(employee => {
         appendedHTML += createCard(employee);
     })
