@@ -10,17 +10,55 @@
  *  1) Name
  *  2) Position
  *  3) Id value
- *  4) Email
  *  5) Office Number/School/Or Github => can be split into two => one question for parameter and one question for answer
  *  
  * 
  * 
  */
+const Manager = require('./Assets/js/classes/Manager')
 
-const inquirer = require('inquirer');
 
-inquirer.prompt([
-    {
-        type:'input'
+const addTeam = require('./Assets/js/functions/addTeamMemberPrompts');
+ const convertToNameProperty = (question) => {
+    let questionName = '';
+    let tempQuestion = question.slice(0, question.length - 1)
+    let allLower = tempQuestion.toLowerCase();
+    if (allLower.includes(' ')) {
+        questionName = allLower.replace(' ', '_');
+    } else {
+        questionName = allLower;
     }
-])
+    return questionName;
+}
+
+const createPromptObjectsArray = (questionsArr) => {
+    const promptArr = questionsArr.map(question =>  {
+        let nameProperty = convertToNameProperty(question);
+        return {
+            type: 'input',
+            message: `${question}`,
+            name: nameProperty,
+        }
+    })
+    return promptArr;
+}
+let teamList = [];
+
+exports.createPrompts =  createPromptObjectsArray;
+exports.teamList =  teamList;
+
+let totalEngineers = {
+    isEngineer: null,
+    engineerStaffSize: 0,
+
+}
+let totalInterns = {
+    engineerStaffSize: 0,
+}
+
+
+addTeam.teamMateAdder();
+// require('./Assets/js/functions/managerPrompt');
+
+
+
