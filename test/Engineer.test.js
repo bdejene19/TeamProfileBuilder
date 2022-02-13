@@ -1,7 +1,9 @@
 const Engineer = require('../Assets/js/classes/Engineer');
 
-
+// beginning of test cases
+// Engineer test cases: initialization of constructor, and methods: getName(), getId(), getEmail(), getGithub(), getRole()
 describe('Engineer', () => {
+    // Engineer initialization test to determine properties of Intern object have properly been set
     it('Initialization',() => {
         it("Should return an Engineer object, with the properties extended from Engineer class (name, id, email) and github", () => {
             const name = 'Bob';

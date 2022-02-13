@@ -1,7 +1,10 @@
 const Manager = require('../Assets/js/classes/Manager');
 
+// beginning of test cases
+// Manager test cases: initialization of constructor, and methods: getName(), getId(), getEmail(), getRole()
 
 describe('Manager', () => {
+    // Intern initialization test to determine properties of Intern object have properly been set
     it('Initialization',() => {
         it("Should return an Manager object, with the properties extended from Manager class (name, id, email) and github", () => {
             const name = 'Bob';

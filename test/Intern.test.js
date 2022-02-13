@@ -1,8 +1,9 @@
 const Intern = require('../Assets/js/classes/Intern');
 
-
+// Intern Class test cases: initialization, and methods: getName(), getId(), getEmail(), getSchool(), getRole()
 describe('Intern', () => {
     it('Initialization',() => {
+        // Intern initialization test to determine properties of Intern object have properly been set
         it("Should return an Intern object, with the properties extended from Intern class (name, id, email) and github", () => {
             const name = 'Bob';
             const id = 1;
@@ -17,6 +18,7 @@ describe('Intern', () => {
             expect(newIntern.school).toEqual(internSchoolName);        
         })
 
+        // Test to ensure error is thrown when not enough parameters are passed through
         it("Should return an error when not all parameters in constructor are passed for Intern Object", () => {
             const cb = () => new Intern();
             const errorMsg = new Error('Not all parameters were filled in intern constructor'); 

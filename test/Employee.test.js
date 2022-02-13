@@ -2,6 +2,7 @@
 const Employee = require('../Assets/js/classes/Employee');
 
 // beginning of testing for 'Employee'
+// Employee Class test cases: initialization of constructor, and methods: getName(), getId(), getEmail(), getRole()
 describe("Employee", () => {
 
     // Testing for initialization => checks to see if new employee object properties are updated correctly
