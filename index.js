@@ -17,7 +17,7 @@
  */
 const Manager = require('./Assets/js/classes/Manager')
 
-
+const addManager = require('./Assets/js/functions/managerPrompt');
 const addTeam = require('./Assets/js/functions/addTeamMemberPrompts');
  const convertToNameProperty = (question) => {
     let questionName = '';
@@ -44,20 +44,15 @@ const createPromptObjectsArray = (questionsArr) => {
 }
 let teamList = [];
 
-exports.createPrompts =  createPromptObjectsArray;
+exports.createPrompts = createPromptObjectsArray;
 exports.teamList =  teamList;
 
-let totalEngineers = {
-    isEngineer: null,
-    engineerStaffSize: 0,
+addManager.askManagerQs().then(data => {
+    let teamManager = new Manager(data.name, data.employee_id, data.email, data.office_number);
+    teamList.push(teamManager);
+    addTeam.teamMateAdder();
 
-}
-let totalInterns = {
-    engineerStaffSize: 0,
-}
-
-
-addTeam.teamMateAdder();
+});
 // require('./Assets/js/functions/managerPrompt');
 
 

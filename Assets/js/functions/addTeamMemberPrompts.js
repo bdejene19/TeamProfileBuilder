@@ -68,7 +68,7 @@ const teamMateAdder = () => {
         } else {
             let teamLead = reused.teamList[0];
             let onlyEngs = reused.teamList.filter(obj => obj.getRole() === 'Engineer')
-            let onlyInterns = reused.teamList.filter(obj => obj.getRole() === 'Intern')
+            let onlyInterns = reused.teamList.filter(obj => obj.getRole() === 'Intern');
             htmlGen.writeHtmlFile('test', reused.teamList);
         }
     }).catch(err => console.log(err))  ;

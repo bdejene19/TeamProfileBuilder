@@ -3,8 +3,14 @@ const reused = require('../../../index');
 
 
 const managerQuestions = ['Name:', 'Employee ID:', "Email:", "Office Number:"];
-const managerPromptQs = reused.createPromptObjectsArray(managerQuestions);
 
-console.log('Fill out Team Manager Information\n___________________')
-inquirer.prompt(managerPromptQs)
+const askManagerQs = () => {
+    const managerPromptQs = reused.createPrompts(managerQuestions);
+    console.log('\nFill out Team Manager Information\n___________________\n')
+    return inquirer.prompt(managerPromptQs)
+}
+
+module.exports = {
+    askManagerQs,
+}
 
