@@ -43,12 +43,9 @@ Generate HTML page from the command line, displaying cards of employee informati
   ## Contribution Guidelines
 Solo project. Open to pull requests for new features. DM for details.
 
-  ## Test Instructions
-
-  
-<pre>Uses jest for testing</pre>
-
-<pre>run tests by: npm run test</pre>
+  ## Test Instructions  
+Uses jest for testing
+<pre>npm run test</pre>
 
 
   ## Questions
