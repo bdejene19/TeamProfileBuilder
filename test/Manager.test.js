@@ -25,7 +25,7 @@ describe('Manager', () => {
 
             const errorMsg = new Error('Not all parameters were filled in Manager constructor');
 
-            expect(cb).toEqual(errorMsg)
+            expect(cb).toThrow(errorMsg)
         })
     })
 

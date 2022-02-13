@@ -18,13 +18,12 @@
 
   Command-line application built using Node.js. Using Node to run the application, a user is presenting with a series of prompts in the terminal/command-line to answer questions about the manager. The manager is then offered the chance to add team member (engineer or intern). At the end of prompts, new objects are created for each employee (Manager, Engineer or Intern), which are then used to create an HTML file on the frontend using OOP. On HTML page, cards of each employee. Cards are displayed in order of seniority (Manager -> Engineer -> Intern).
 
+  ## Command-Line Walkthrough
+
   ## Installation Instructions
 
     
-<pre>install nodejs</pre>
-
-<pre>init npm -y</pre>
-
+Install Node.js on your local machine, then:
 <pre>npm i</pre>
 
 <pre>node index.js</pre>
