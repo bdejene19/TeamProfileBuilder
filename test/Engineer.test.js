@@ -4,7 +4,7 @@ const Engineer = require('../Assets/js/classes/Engineer');
 // Engineer test cases: initialization of constructor, and methods: getName(), getId(), getEmail(), getGithub(), getRole()
 describe('Engineer', () => {
     // Engineer initialization test to determine properties of Intern object have properly been set
-    it('Initialization',() => {
+    describe('Initialization',() => {
         it("Should return an Engineer object, with the properties extended from Engineer class (name, id, email) and github", () => {
             const name = 'Bob';
             const id = 1;
@@ -22,13 +22,13 @@ describe('Engineer', () => {
         it("Should return an error when not all parameters in constructor are passed for Engineer Object", () => {
             const cb = () => new Engineer();
             const errorMsg = new Error('Not all parameters were filled in engineer constructor'); 
-            expect(cb).to(errorMsg);
+            expect(cb).toThrow(errorMsg);
         })
     })
 
     // beginning of testing for Engineer class methods
     // get name is expecting Bob when getName is invoked => making sure Bob in constructor and method are in tandem
-    it('getName', () => {
+    describe('getName', () => {
         it("Should return Engineer object's name property", () => {
             let expectedName = 'Bob';
             let newEngineer = new Engineer('Bob', 1, 'testEmail', 'gitAccount');
@@ -38,7 +38,7 @@ describe('Engineer', () => {
         })
     })
     // getId() is expecting the number 1 when getId is invoked => making sure id in constructor and method are in tandem
-    it('getId', () => {
+    describe('getId', () => {
         it("Should return Engineer object's id property", () => {
             let expectedId = 1;
             let newEngineer = new Engineer('Bob', 1, 'testEmail', 'gitAccount');
@@ -49,7 +49,7 @@ describe('Engineer', () => {
     })
 
     // getEmail() is expecting the string testEmail@gmail.com when getEmail is invoked => making sure id in constructor and method are in tandem
-    it('getEmail', () => {
+    describe('getEmail', () => {
         it("Should return Engineer object's em property", () => {
             let expectedEmail = 'test@gmail.com';
             let newEngineer = new Engineer('Bob', 1, 'test@gmail.com', 'gitaccount');
@@ -60,7 +60,7 @@ describe('Engineer', () => {
     })
 
     // method is expected to return the String Engineer
-    it('getRole', () => {
+    describe('getRole', () => {
         it("Should return string saying Engineer", () => {
             let expectedRole = 'Engineer';
             let newEngineer = new Engineer('Bob', 1, 'testEmail@gmail.com', 'gitAccount');
@@ -69,7 +69,7 @@ describe('Engineer', () => {
         })
     })
 
-    it('getGithub', () => {
+    describe('getGithub', () => {
         it("Should return Engineer object's Github username", () => {
             let expectedGitUsername = 'bdejene19@gmail.com';
             let newEngineer = new Engineer('Bob', 1, 'testEmail@gmail.com', 'bdejene19@gmail.com');

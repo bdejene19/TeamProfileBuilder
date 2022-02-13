@@ -7,7 +7,7 @@ describe("Employee", () => {
 
     // Testing for initialization => checks to see if new employee object properties are updated correctly
     // also tests for missing properties in constructor
-    it('Initialization', () => {
+    describe('Initialization', () => {
         it("Should create new Employee object when constructor is called, with a name, id and email", () => {
             const name = 'Bob';
             const id = 1;
@@ -22,13 +22,13 @@ describe("Employee", () => {
         it('Should throw an error when a parameter any parameter is missing', () => {
             let cb = () => new Employee();
             let errorMsg = new Error('Parameter missing in constructor');
-            expect(cb).ToThrow(errorMsg);
+            expect(cb).toThrow(errorMsg);
         })
     })
 
     // beginning of testing for Employee class methods
     // get name is expecting Bob when getName is invoked => making sure Bob in constructor and method are in tandem
-    it('getName', () => {
+    describe('getName', () => {
         it("Should return Employee object's name property", () => {
             let expectedName = 'Bob';
             let newEmployee = new Employee('Bob', 1, 'testEmail');
@@ -38,7 +38,7 @@ describe("Employee", () => {
         })
     })
     // getId() is expecting the number 1 when getId is invoked => making sure id in constructor and method are in tandem
-    it('getId', () => {
+    describe('getId', () => {
         it("Should return Employee object's id property", () => {
             let expectedId = 1;
             let newEmployee = new Employee('Bob', 1, 'testEmail');
@@ -49,7 +49,7 @@ describe("Employee", () => {
     })
 
     // getEmail() is expecting the string testEmail@gmail.com when getEmail is invoked => making sure id in constructor and method are in tandem
-    it('getEmail', () => {
+    describe('getEmail', () => {
         it("Should return Employee object's em property", () => {
             let expectedEmail = 'test@gmail.com';
             let newEmployee = new Employee('Bob', 1, 'test@gmail.com');
@@ -60,7 +60,7 @@ describe("Employee", () => {
     })
 
     // method is expected to return the String Employee
-    it('getRole', () => {
+    describe('getRole', () => {
         it("Should return string saying Employee", () => {
             let expectedRole = 'Employee';
             let newEmployee = new Employee('Bob', 1, 'testEmail@gmail.com');

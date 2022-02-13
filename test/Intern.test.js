@@ -2,7 +2,7 @@ const Intern = require('../Assets/js/classes/Intern');
 
 // Intern Class test cases: initialization, and methods: getName(), getId(), getEmail(), getSchool(), getRole()
 describe('Intern', () => {
-    it('Initialization',() => {
+    describe('Initialization',() => {
         // Intern initialization test to determine properties of Intern object have properly been set
         it("Should return an Intern object, with the properties extended from Intern class (name, id, email) and github", () => {
             const name = 'Bob';
@@ -22,13 +22,13 @@ describe('Intern', () => {
         it("Should return an error when not all parameters in constructor are passed for Intern Object", () => {
             const cb = () => new Intern();
             const errorMsg = new Error('Not all parameters were filled in intern constructor'); 
-            expect(cb).to(errorMsg);
+            expect(cb).toThrow(errorMsg);
         })
     })
 
     // beginning of testing for Intern class methods
     // get name is expecting Bob when getName is invoked => making sure Bob in constructor and method are in tandem
-    it('getName', () => {
+    describe('getName', () => {
         it("Should return Intern object's name property", () => {
             let expectedName = 'Bob';
             let newIntern = new Intern('Bob', 1, 'testEmail', 'gitAccount');
@@ -38,7 +38,7 @@ describe('Intern', () => {
         })
     })
     // getId() is expecting the number 1 when getId is invoked => making sure id in constructor and method are in tandem
-    it('getId', () => {
+    describe('getId', () => {
         it("Should return Intern object's id property", () => {
             let expectedId = 1;
             let newIntern = new Intern('Bob', 1, 'testEmail', 'gitAccount');
@@ -49,7 +49,7 @@ describe('Intern', () => {
     })
 
     // getEmail() is expecting the string testEmail@gmail.com when getEmail is invoked => making sure id in constructor and method are in tandem
-    it('getEmail', () => {
+    describe('getEmail', () => {
         it("Should return Intern object's em property", () => {
             let expectedEmail = 'test@gmail.com';
             let newIntern = new Intern('Bob', 1, 'test@gmail.com', 'gitaccount');
@@ -60,7 +60,7 @@ describe('Intern', () => {
     })
 
     // method is expected to return the String Intern
-    it('getRole', () => {
+    describe('getRole', () => {
         it("Should return string saying Intern", () => {
             let expectedRole = 'Intern';
             let newIntern = new Intern('Bob', 1, 'testEmail@gmail.com', 'gitAccount');
@@ -69,7 +69,7 @@ describe('Intern', () => {
         })
     })
 
-    it('getSchool', () => {
+    describe('getSchool', () => {
         it("Should return school property (String) of newly generated Intern object", () => {
             const school = 'UWO'
             const newIntern = new Intern('Bemnet', '1', 'test@gmail.com', 'UWO');

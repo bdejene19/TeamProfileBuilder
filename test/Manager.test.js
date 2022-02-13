@@ -5,7 +5,7 @@ const Manager = require('../Assets/js/classes/Manager');
 
 describe('Manager', () => {
     // Intern initialization test to determine properties of Intern object have properly been set
-    it('Initialization',() => {
+    describe('Initialization',() => {
         it("Should return an Manager object, with the properties extended from Manager class (name, id, email) and github", () => {
             const name = 'Bob';
             const id = 1;
@@ -31,7 +31,7 @@ describe('Manager', () => {
 
     // beginning of testing for Manager class methods
     // get name is expecting Bob when getName is invoked => making sure Bob in constructor and method are in tandem
-    it('getName', () => {
+    describe('getName', () => {
         it("Should return Manager object's name property", () => {
             let expectedName = 'Bob';
             let newManager = new Manager('Bob', 1, 'testEmail', '123');
@@ -41,7 +41,7 @@ describe('Manager', () => {
         })
     })
     // getId() is expecting the number 1 when getId is invoked => making sure id in constructor and method are in tandem
-    it('getId', () => {
+    describe('getId', () => {
         it("Should return Manager object's id property", () => {
             let expectedId = 1;
             let newManager = new Manager('Bob', 1, 'testEmail', '123');
@@ -54,7 +54,7 @@ describe('Manager', () => {
    
 
     // method is expected to return the String Manager
-    it('getRole', () => {
+    describe('getRole', () => {
         it("Should return string saying Manager", () => {
             let expectedRole = 'Manager';
             let newManager = new Manager('Bob', 1, 'testEmail@gmail.com', '123');
