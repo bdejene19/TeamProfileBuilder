@@ -69,19 +69,11 @@ exports.teamList =  teamList;
 // beginning of command line application
 // asks manager questions and creates new object after validation. Pushes object to teamList and continues to next set of questions 
 addManager.askManagerQs().then(data => {
-
-    // if (data.name === '' || data.employee_id === '' || data.email === '' || data.office_number === '') {
-    //     let errorMsg = new Error('Not all parameters were filled in Manager constructor');
-    //     throw(errorMsg);
-    //     // addManager.askManagerQs();
-    // }
     let teamManager = new Manager(data.name, data.employee_id, data.email, data.office_number);
     teamList.push(teamManager);
 
     // next set of questions: add employees (engineer or intern)
     addTeam.teamMateAdder();
-
 });
-
 
 
