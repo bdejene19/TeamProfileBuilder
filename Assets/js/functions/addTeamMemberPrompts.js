@@ -85,7 +85,26 @@ const teamMateAdder = () => {
                 })
             })
         } else {
-            htmlGen.writeHtmlFile('test', reused.teamList);
+            htmlGen.askFileName()
+                .then(data => {
+                    let team = reused.teamList;
+                    let manager = team[0]
+                    let engineers = team.filter(member => member.github)
+                    let interns = team.filter(member => member.school)
+
+                    let orderedArr = []
+                    orderedArr = orderedArr.concat(manager);
+                    
+                    orderedArr = engineers.length > 0 ? orderedArr.concat(engineers) : orderedArr;
+                    orderedArr = interns.length > 0 ? orderedArr.concat(interns) : orderedArr;
+                    // let orderedTeam = [...manager, ...engineers, ...interns]
+                    if (data.fileName !== '' && data.fileName !== undefined && data.fileName !== null) {
+                        htmlGen.writeHtmlFile(data.fileName, orderedArr);
+                    } else {
+                        console.log('Improper file name chosen, please enter valid file name.\n__________\n')
+                        htmlGen.askFileName();
+                    }
+                })
         }
     }).catch(err => console.log(err))  ;
 
