@@ -20,7 +20,9 @@
 
   ## Command-Line Walkthrough
 * Link to video [walkthrough](https://drive.google.com/file/d/1h-MpPjeeGHW82IHw2OPrhQt_Pbauofgh/view?usp=sharing) of using application through command-line.
-  ## Installation Instructions
+
+
+## Installation Instructions
 Install Node.js on your local machine, then:
 <pre>npm i</pre>
 
