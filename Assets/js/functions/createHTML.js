@@ -17,6 +17,7 @@
 
 // import fs to write html file
 const fs = require('fs');
+const inquirer = require('inquirer');
 
 /**
  * Generates employee card in new HTML file 
@@ -72,7 +73,6 @@ const createCard = (employeeAttribs) => {
  */
 const writeHtmlFile = (fileName, fileContent) => {
     let appendedHTML ='';
-    console.log(fileContent);
     fileContent.map(employee => {
         appendedHTML += createCard(employee);
     })
@@ -106,9 +106,20 @@ const writeHtmlFile = (fileName, fileContent) => {
     `
 
 
-    fs.writeFile(`${fileName}.html`, fullHTMLFile, (err) => err ? console.log('error occured') : console.log('success'))
+    fs.writeFile(`./dist/${fileName}.html`, fullHTMLFile, (err) => err ? console.log('error occured') : console.log(`file ${fileName}.html was created in dist folder`))
 }
 
+
+const askFileName = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            message: 'Name your file (without .html extension)',
+            name: 'fileName',
+        }
+    ])
+}
 module.exports = {
     writeHtmlFile,
+    askFileName,
 }

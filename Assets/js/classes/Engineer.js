@@ -7,6 +7,10 @@ const Employee = require('./Employee');
  */
 class Engineer extends Employee {
     constructor(name, id, email, gitusername) {
+        if (name === undefined || name === '' || id === undefined || id === '' || email === undefined || email === '' || gitusername === undefined || gitusername === '') {
+            const errorMsg = new Error('Not all parameters were filled in engineer constructor'); 
+            throw(errorMsg);
+        }
         super(name, id, email);
         this.github = gitusername;
     }

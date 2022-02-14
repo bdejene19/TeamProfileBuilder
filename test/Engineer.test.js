@@ -22,7 +22,7 @@ describe('Engineer', () => {
         it("Should return an error when not all parameters in constructor are passed for Engineer Object", () => {
             const cb = () => new Engineer();
             const errorMsg = new Error('Not all parameters were filled in engineer constructor'); 
-            expect(cb).toThrow(errorMsg);
+            expect(cb).toThrowError(errorMsg);
         })
     })
 

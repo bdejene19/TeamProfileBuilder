@@ -8,6 +8,10 @@ const Employee = require('./Employee');
 
 class Intern extends Employee {
     constructor(name, id, email, internSchool) {
+        if (name === undefined || name === '' || id === undefined || id === '' || email === undefined || email === '' || internSchool === undefined || internSchool === '') {
+            const errorMsg = new Error('Not all parameters were filled in intern constructor'); 
+            throw(errorMsg);
+        }
         super(name, id, email);
         this.school = internSchool;
     }

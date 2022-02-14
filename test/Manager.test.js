@@ -22,10 +22,8 @@ describe('Manager', () => {
 
         it("Should return an error when not all properties are passed into constructor", () => {
             const cb = () => new Manager();
-
             const errorMsg = new Error('Not all parameters were filled in Manager constructor');
-
-            expect(cb).toThrow(errorMsg)
+            expect(cb).toThrowError(errorMsg)
         })
     })
 
